@@ -1,0 +1,102 @@
+def len_log(words):
+    if not words:
+        return 0
+    
+    if isinstance(words, str):
+        words = words.split()
+    
+    if not words:
+        return 0
+    
+    longest_word = max(words, key=len)
+    return len(longest_word)
+def find_substring(substring, string_list):
+    if not string_list:
+        return False
+    
+    for string in string_list:
+        if substring in string:
+            return True
+    
+    return False
+def is_undulating(n):
+    s = str(n)
+    
+    if len(s) < 3:
+        return False
+    
+    if s[0] == s[1]:
+        return False
+    
+    digit1 = s[0]
+    digit2 = s[1]
+    
+    for i in range(len(s)):
+        if i % 2 == 0:
+            if s[i] != digit1:
+                return False
+        else:
+            if s[i] != digit2:
+                return False
+    
+    return True
+def power(a, b):
+    return a ** b
+def index_minimum(tuples):
+    if not tuples:
+        return None
+    
+    min_tuple = min(tuples, key=lambda t: min(t))
+    min_index = tuples.index(min_tuple)
+    
+    return (min_index, min_tuple)
+def Find_Min_Length(lst):
+    if not lst:
+        return 0
+    
+    return min(len(sublist) for sublist in lst)
+def divisor(n):
+    if n == 0:
+        return 0
+    
+    n = abs(n)
+    count = 0
+    
+    i = 1
+    while i * i <= n:
+        if n % i == 0:
+            if i * i == n:
+                count += 1
+            else:
+                count += 2
+        i += 1
+    
+    return count
+def frequency_lists(lists):
+    if not lists:
+        return {}
+    
+    frequency = {}
+    
+    for lst in lists:
+        lst_tuple = tuple(lst)
+        if lst_tuple in frequency:
+            frequency[lst_tuple] += 1
+        else:
+            frequency[lst_tuple] = 1
+    
+    return frequency
+def multiply_num(numbers):
+    if not numbers:
+        return 0
+    
+    product = 1
+    for num in numbers:
+        product *= num
+    
+    return product / len(numbers)
+def decimal_to_binary(n):
+    if n >= 0:
+        return bin(n)[2:]
+    else:
+        return '-' + bin(n)[3:]

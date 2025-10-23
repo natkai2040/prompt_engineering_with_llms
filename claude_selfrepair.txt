@@ -1,0 +1,63 @@
+def len_log(words):
+    if isinstance(words, str):
+        words = words.split()
+    if not words:
+        return 0
+    return max(len(word) for word in words)
+def find_substring(string_list, substring):
+    for string in string_list:
+        if substring in string:
+            return True
+    return False
+def is_undulating(n):
+    s = str(n)
+    if len(s) < 3:
+        return False
+    
+    if len(set(s)) != 2:
+        return False
+    
+    for i in range(len(s) - 1):
+        if s[i] == s[i + 1]:
+            return False
+    
+    return True
+def power(a, b):
+    return a ** b
+def index_minimum(tuples_list):
+    if not tuples_list:
+        return None
+    return tuple(min(values) for values in zip(*tuples_list))
+def Find_Min_Length(lst):
+    if not lst:
+        return 0
+    return min(len(sublist) for sublist in lst)
+def divisor(n):
+    if n <= 0:
+        return 0
+    count = 0
+    i = 1
+    while i * i <= n:
+        if n % i == 0:
+            if i * i == n:
+                count += 1
+            else:
+                count += 2
+        i += 1
+    return count
+def frequency_lists(list_of_lists):
+    from collections import Counter
+    freq = Counter(tuple(sublist) for sublist in list_of_lists)
+    return dict(freq)
+def multiply_num(numbers):
+    if not numbers:
+        return 0
+    product = 1
+    for num in numbers:
+        product *= num
+    return product / len(numbers)
+def decimal_to_binary(n):
+    if n >= 0:
+        return bin(n)[2:]
+    else:
+        return '-' + bin(n)[3:]
